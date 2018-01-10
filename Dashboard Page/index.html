@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="./js/firebase.js"></script>
+    <script src="./js/firebase-app.js"></script>
+    <script src="./js/firebase-auth.js"></script>
+    <script src="./js/firebase-database.js"></script>
+
+  </head>
+  <body>
+  	<div class="container-fluid">
+  	  <div class="left col-lg-2 col-md-2 col-sm-2 col-xs-2">
+  	  	<img src="img/sash_logo.png">
+  	  </div>
+  	  <div class="main col-lg-9 col-md-9 col-sm-9 col-xs-9">	  	
+	  	<form class="header_form" style="margin-top: 0px;">
+		  	<div class="greeting">
+			  	Hi, Boss
+			  	<a href="http://mukaser.com/sash/" class="link">Logout</a>
+		  	</div>
+	  	</form>
+	  	<form class="main_form" id="main_form" onsubmit="return false;">
+	  	  	<div class="setting">
+	  	  		<div class="branch">
+			  	  	Branch:
+			  	    <select id="Branch" onchange="showCategories()">
+					  <!-- <option value="all">All</option> -->
+				    </select>
+				</div>
+				<div class="row">
+			    	<div class="start_date col-lg-3 col-md-5 col-sm-5 col-xs-10">
+			    		<div class="letter">Start date</div>
+					    	<!-- <input id = "start_date" name="date" type="text" onfocus="(this.type='date')" onfocusout="(this.type='text')"> -->
+					    	<input id = "start_date" name="date" type="date">
+					</div>
+					<div class="end_date col-lg-3 col-md-5 col-sm-5 col-xs-10">
+						<div class="letter">End date</div>
+							<!-- <input id = "end_date" name="date" type="text" onfocus="(this.type='date')" onfocusout="(this.type='text')"> -->
+							<input id = "end_date" name="date" type="date">
+					</div>
+			    </div>
+			    <div class="row">
+					<div class="category col-lg-3 col-md-5 col-sm-5 col-xs-10">
+						<select id="category" onchange="showSubcategories()"></select>
+				    </div>
+				    <div class="sub_category col-lg-3 col-md-5 col-sm-5 col-xs-10">
+					    <select id="sub_category" onchange="showItems()"></select>
+					</div>
+					<div class="items col-lg-3 col-md-5 col-sm-5 col-xs-10">
+					    <select id="items"></select>
+					</div>
+					<div class="search col-lg-2 col-md-3 col-sm-4 col-xs-4" >
+					    <button type="button" id="search" onclick="submitSearch()">Search</button></div>
+				</div>
+		   	</div>
+		   	<div class="sales_header">
+		   		<div class="line"></div>
+		   		<div class="title" id = "title">Today Sales</div>
+		   	</div>
+		   	<div class="sales_display">
+		   		<div class="row">
+		   				<div class="sales_group">
+		   					<label class="total_sales">Total Sales</label>
+		   					<output id="sum_sales"></output>
+		   					<label class="unit1">SR</label>
+		   				</div>
+			   			<div class="items_group">
+			   				<label class="total_items">Total Items</label>
+			   				<output id="sum_items"></output>
+			   				<label class="unit2">Items</label>
+			   			</div>
+			   	</div>
+		   			<!-- <div class="total-sales col-lg-3 col-md-3 col-sm-4 col-xs-4">Total Sales</div>
+		   			<div class="total-items col-lg-3 col-lg-offset-3 col-md-3 col-md-offset-1 col-sm-4 col-xs-offset-2 col-xs-4">Total Items</div>
+		   			<div class="sum-sales col-lg-3 col-md-3 col-sm-4 col-xs-4">
+		   				<output id="sum-sales"></output>
+		   				<div class="unit1">SR</div>
+		   			</div>
+		   			<div class="sum-items col-lg-3 col-md-4 col-sm-4 col-xs-4 col-lg-offset-3 col-md-offset-1 col-sm-offset-1  col-xs-offset-1">
+		   				<output id="sum-items"></output>
+		   				<div class="unit2">Items</div>
+		   			</div> -->
+		   		<!-- </div> -->
+		   	</div>
+	  	</form>
+	  	<div class="row">
+	  		<div class="sales_chart col-lg-6 col-md-6 col-sm-6 col-xs-5">
+    			<canvas id="myChart1"></canvas>
+	        </div>
+            <div class="items_chart col-lg-6 col-md-6 col-sm-6 col-xs-5">
+        		<canvas id="myChart2"></canvas>
+            </div>
+	    </div>
+	</div>
+	<script src="js/chart.min.js"></script>
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script type="application/javascript" src="js/dashboard.js"></script>
+  </body>
+</html>  

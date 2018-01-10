@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Verify</title>
+    <link href="./phone_verify/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./phone_verify/css/style.css">
+    <script src="./phone_verify/js/jquery-3.2.1.min.js"></script>
+    <script src="./phone_verify/js/jquery.validate.min.js"></script>
+    <script src="./phone_verify/js/firebase.js"></script>
+    <script src="./phone_verify/js/firebase-app.js"></script>
+    <script src="./phone_verify/js/firebase-auth.js"></script>
+    <script src="./phone_verify/js/firebase-database.js"></script>
+    <script src="./phone_verify/js/firebase-messaging.js"></script>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="login-header">
+        <img class="login-header-bg" src="./phone_verify/img/login_header_bg.png" alt="title">
+        <div class="login-letter col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-4 col-xs-offset-4">
+          <h2 id="header_letter_login"> Login </h2>
+          <h2 id="header_letter_verify"> Verify </h2>
+        </div>
+      </div>
+      <div class="logo col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-4 col-xs-offset-4">
+        <img class="login-pic-placeholder" src="./phone_verify/img/logo.png">
+      </div>
+      <div class="col-lg-4 col-lg-offset-4 col-md-10 col-md-offset-1  col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+          <form class="form-signin" name="info_input" id="info_input" onsubmit="return onSignInSubmit()">
+            <div class="input">
+                <p id = "phone_error">The phone number doesn't exist in database.</p>
+                <div id = "tel_num_input">
+                    <input type="tel" id="tel_num" class="tel_num" placeholder="Phone Number" pattern="[+0-9]{9,14}" required>
+                </div>
+                <div id = "login_button">
+                    <button class="basic-btn" type="submit" id="login_btn">Login</button>
+                </div>
+            </div>
+          </form>
+          <form class="form-signin" name="authFrm" id="authFrm" onsubmit="return onVerifyCodeSubmit()">
+            <div class="input">
+              <p id = "sms_input">We sent a code to your phone. Enter it below so we know you're a real person</p>
+              <p id = "sms_error">Incorrect code. Please try to again or request a new one</p>
+              <p id = "sms_success">Verification success</p>
+              <input type="tel" id="auth_code_input" class="auth_code" placeholder="Verification Code" pattern="[0-9]{6}" required>
+              <button class="basic-btn" type="submit" id="verify_btn">Verify</button>
+              <button class="basic-btn" type="submit" id="return_btn">Login with another phone</button>
+            </div>
+          </form>
+      </div> 
+    </div>
+  </body>
+  <script src="./phone_verify/js/verify.js"></script>
+</html>
